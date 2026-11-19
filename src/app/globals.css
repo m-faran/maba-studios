@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-void: #07080a;
+  --bg-surface: #0c0e12;
+  --bg-inset: #090b0e;
+  --hairline: #1b1e24;
+  --hairline-strong: #2d3340;
+  --ink-primary: #f5f6f8;
+  --ink-secondary: #a1a8b6;
+  --ink-muted: #767f90;
+  --accent-cobalt: #2563eb;
+  --accent-cobalt-hover: #1d4ed8;
+  --accent-cobalt-tint: rgba(37, 99, 235, 0.14);
+  --signal-local: #34d399;
+  --signal-blocked: #f87171;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg-void);
+  --color-foreground: var(--ink-primary);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
+  background-color: var(--bg-void);
+  color: var(--ink-primary);
+  scrollbar-color: var(--hairline-strong) var(--bg-void);
+  scrollbar-width: thin;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-void);
+  color: var(--ink-primary);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  caret-color: var(--accent-cobalt);
+  overflow-x: clip;
+}
+
+/* Browser surface polish */
+::selection {
+  background-color: var(--accent-cobalt);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-cobalt);
+  outline-offset: 2px;
+}
+
+a {
+  text-underline-offset: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hairline-strong);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f4758;
+}
+
+/* Editorial serif voice matching Comp 5 */
+.font-editorial {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Single authored motion moment: calm cosmic settle on hero plate */
+@keyframes cosmosSettle {
+  from {
+    opacity: 0.72;
+    transform: scale(1.035);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-cosmos-settle {
+  animation: cosmosSettle 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-cosmos-settle {
+    animation: none;
+  }
 }
