@@ -5,24 +5,24 @@ import { PlusIcon } from "./Icons";
 
 const FAQS = [
   {
-    question: "Does MABA AI really work completely offline with zero internet?",
+    question: "Does BAMA AI really work completely offline with zero internet?",
     answer:
-      "Yes. Once installed on your Android device, MABA AI runs quantization-native models 100% on-device. You can enable airplane mode and continue using it with zero cloud calls and zero remote servers involved.",
+      "Yes. Once installed on your Android device, BAMA AI runs quantization-native models 100% on-device. You can enable airplane mode and continue using it with zero cloud calls and zero remote servers involved.",
   },
   {
-    question: "Will MABA Studios apps run on budget or mid-range Android phones?",
+    question: "Will BAMA Studios apps run on budget or mid-range Android phones?",
     answer:
-      "That is our core engineering target. Rather than assuming flagship silicon, MABA AI's quantization-native models and MABA Upscaler's single-pass GLSL shader are built specifically around budget and mid-range memory and GPU constraints.",
+      "That is our core engineering target. Rather than assuming flagship silicon, BAMA AI's quantization-native models and BAMA Upscaler's single-pass GLSL shader are built specifically around budget and mid-range memory and GPU constraints.",
   },
   {
     question: "Are there any subscriptions, accounts, API keys, or token limits?",
     answer:
-      "No. MABA AI is available free on Google Play with no paywalls, no account registration, no external API key setup, and no metered token ceilings. Your local compute is yours to use freely.",
+      "No. BAMA AI is available free on Google Play with no paywalls, no account registration, no external API key setup, and no metered token ceilings. Your local compute is yours to use freely.",
   },
   {
-    question: "How does MABA Link connect my Android phone to LM Studio?",
+    question: "How does BAMA Link connect my Android phone to LM Studio?",
     answer:
-      "MABA Link bridges your Android phone directly to an LM Studio instance running on your PC over your local Wi-Fi network. Traffic stays inside your local network so you can run heavier desktop models from your phone without cloud relays.",
+      "BAMA Link bridges your Android phone directly to an LM Studio instance running on your PC over your local Wi-Fi network. Traffic stays inside your local network so you can run heavier desktop models from your phone without cloud relays.",
   },
   {
     question: "How does Virtual HDD unify Google Drive, TeraBox, and local storage?",
@@ -30,9 +30,9 @@ const FAQS = [
       "Virtual HDD mounts Google Drive, TeraBox, and a local cache as a single native Windows drive letter. Its smart read-through cache keeps frequently accessed data fast on local disk while presenting one unified filesystem in Windows.",
   },
   {
-    question: "Where can I inspect and use MABA Upscaler?",
+    question: "Where can I inspect and use BAMA Upscaler?",
     answer:
-      "MABA Upscaler is an open-source single-pass spatial upscaler written in GLSL for low-end mobile GPUs. Its shader source lives on GitHub so graphics developers and tinkerers can audit, benchmark, and integrate it directly.",
+      "BAMA Upscaler is an open-source single-pass spatial upscaler written in GLSL for low-end mobile GPUs. Its shader source lives on GitHub so graphics developers and tinkerers can audit, benchmark, and integrate it directly.",
   },
 ];
 

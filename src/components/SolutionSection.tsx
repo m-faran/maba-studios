@@ -1,352 +1,102 @@
-"use client";
-
-import { useState } from "react";
 import { SITE_LINKS } from "@/lib/links";
-import { ArrowUpRightIcon, CheckIcon } from "./Icons";
+import { ArrowUpRightIcon } from "./Icons";
 
-function AirGappedMonitorVisual() {
-  const [airplaneMode, setAirplaneMode] = useState(true);
+interface WatermarkPlaceholderProps {
+  slotLabel: string;
+}
 
+/** Architectural Logoipsum-style media watermark for pending product imagery. */
+function WatermarkPlaceholder({ slotLabel }: WatermarkPlaceholderProps) {
   return (
-    <div className="border border-[var(--hairline)] bg-[var(--bg-inset)] p-6 sm:p-7">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--hairline)] pb-4">
-        <div className="flex items-center gap-2.5">
-          <span
-            className="h-2 w-2 rounded-full bg-[var(--signal-local)]"
-            aria-hidden="true"
-          />
-          <span className="font-mono text-xs uppercase tracking-[0.08em] text-[var(--ink-primary)]">
-            MABA AI Runtime
-          </span>
-        </div>
+    <div
+      role="img"
+      aria-label={`${slotLabel} — product image placeholder`}
+      className="relative flex aspect-[16/10] w-full select-none flex-col items-center justify-center overflow-hidden border border-[var(--hairline)] bg-[var(--bg-inset)] p-8"
+    >
+      {/* Subtle architectural corner registration marks */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute top-3.5 left-3.5 h-3 w-3 border-t border-l border-[var(--hairline-strong)]"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute top-3.5 right-3.5 h-3 w-3 border-t border-r border-[var(--hairline-strong)]"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-3.5 left-3.5 h-3 w-3 border-b border-l border-[var(--hairline-strong)]"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute right-3.5 bottom-3.5 h-3 w-3 border-r border-b border-[var(--hairline-strong)]"
+      />
 
-        <button
-          type="button"
-          onClick={() => setAirplaneMode((prev) => !prev)}
-          aria-pressed={airplaneMode}
-          className={`inline-flex items-center gap-2 rounded-[2px] border px-3 py-1.5 font-mono text-xs transition-colors ${
-            airplaneMode
-              ? "border-[var(--accent-cobalt)] bg-[var(--accent-cobalt-tint)] text-[var(--ink-primary)]"
-              : "border-[var(--hairline-strong)] bg-transparent text-[var(--ink-secondary)] hover:border-[var(--ink-muted)]"
-          }`}
+      {/* Minimalist Logoipsum-style geometric watermark emblem */}
+      <div className="flex flex-col items-center gap-3.5 text-center">
+        <svg
+          viewBox="0 0 120 44"
+          fill="none"
+          aria-hidden="true"
+          className="h-11 w-auto text-[var(--hairline-strong)]"
         >
-          <span>Airplane Mode: {airplaneMode ? "ON" : "OFF"}</span>
-        </button>
-      </div>
+          {/* Left geometric media mark */}
+          <rect
+            x="1"
+            y="6"
+            width="32"
+            height="32"
+            stroke="currentColor"
+            strokeWidth="1.25"
+          />
+          <path
+            d="M1 32l9.5-10 7 6.5 6-7.5 9.5 11"
+            stroke="currentColor"
+            strokeWidth="1.25"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+          <circle
+            cx="11"
+            cy="15"
+            r="2.25"
+            stroke="var(--accent-cobalt)"
+            strokeOpacity="0.55"
+            strokeWidth="1.25"
+          />
 
-      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <div className="border border-[var(--hairline)] bg-[var(--bg-void)] p-4">
-          <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--ink-muted)]">
-            On-Device Engine
+          {/* Right abstract geometric B monogram + bars (logoipsum-style mark) */}
+          <path
+            d="M47 12h11a5 5 0 0 1 0 10H47V12Zm0 10h12a5 5 0 0 1 0 10H47V22Z"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+          <path
+            d="M76 16h26M76 22h18M76 28h22"
+            stroke="currentColor"
+            strokeWidth="1.25"
+            strokeLinecap="square"
+          />
+          <rect
+            x="108"
+            y="14"
+            width="8"
+            height="16"
+            stroke="var(--accent-cobalt)"
+            strokeOpacity="0.45"
+            strokeWidth="1.25"
+          />
+        </svg>
+
+        <div className="space-y-1">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--ink-muted)]">
+            {slotLabel}
           </p>
-          <p className="mt-2 font-mono text-sm font-medium text-[var(--signal-local)]">
-            ACTIVE · LOCAL RAM
-          </p>
-          <p className="mt-1 text-xs text-[var(--ink-secondary)]">
-            {airplaneMode
-              ? "Radios disabled. Inference continues uninterrupted."
-              : "Radios enabled. Still executes 100% locally."}
-          </p>
-        </div>
-
-        <div className="border border-[var(--hairline)] bg-[var(--bg-void)] p-4">
-          <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--ink-muted)]">
-            Outbound Cloud Socket
-          </p>
-          <p className="mt-2 font-mono tabular-nums text-sm font-medium text-[var(--ink-primary)]">
-            0 PACKETS SENT
-          </p>
-          <p className="mt-1 text-xs text-[var(--ink-secondary)]">
-            No remote endpoint, telemetry host, or login check.
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-4 flex items-center justify-between border-t border-[var(--hairline)] pt-4 font-mono text-xs text-[var(--ink-muted)]">
-        <span>TRANSPORT: ON-DEVICE</span>
-        <span className="text-[var(--ink-secondary)]">GOOGLE PLAY · FREE</span>
-      </div>
-    </div>
-  );
-}
-
-function QuantizationBudgetVisual() {
-  return (
-    <div className="border border-[var(--hairline)] bg-[var(--bg-inset)] p-6 sm:p-7">
-      <div className="flex items-center justify-between border-b border-[var(--hairline)] pb-4 font-mono text-xs text-[var(--ink-muted)]">
-        <span className="uppercase tracking-[0.08em] text-[var(--ink-primary)]">
-          Memory Allocation Profile
-        </span>
-        <span>BUDGET &amp; MID-RANGE</span>
-      </div>
-
-      <div className="mt-6 space-y-5">
-        <div>
-          <div className="flex items-center justify-between font-mono text-xs">
-            <span className="text-[var(--ink-secondary)]">
-              Typical Unquantized Cloud-Era Model
-            </span>
-            <span className="text-[var(--signal-blocked)]">EXCEEDS DEVICE RAM</span>
-          </div>
-          <div className="mt-2 h-2.5 w-full bg-[var(--bg-void)] ring-1 ring-[var(--hairline)]">
-            <div className="h-full w-[94%] bg-[var(--hairline-strong)]" />
-          </div>
-        </div>
-
-        <div>
-          <div className="flex items-center justify-between font-mono text-xs">
-            <span className="text-[var(--ink-primary)]">
-              MABA Quantization-Native Engine
-            </span>
-            <span className="text-[var(--accent-cobalt)]">FITS WITH OS HEADROOM</span>
-          </div>
-          <div className="mt-2 flex h-2.5 w-full bg-[var(--bg-void)] ring-1 ring-[var(--hairline)]">
-            <div className="h-full w-[38%] bg-[var(--accent-cobalt)]" />
-            <div className="h-full w-[22%] border-l border-[var(--bg-void)] bg-[var(--hairline-strong)]/60" />
-          </div>
-          <div className="mt-2 flex items-center justify-between font-mono text-[11px] text-[var(--ink-muted)]">
-            <span>Quantized Weights + KV Cache</span>
-            <span>Free System Headroom</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-6 grid grid-cols-3 divide-x divide-[var(--hairline)] border border-[var(--hairline)] bg-[var(--bg-void)] text-center font-mono text-xs">
-        <div className="py-3">
-          <p className="text-[var(--ink-primary)]">CPU / Mobile</p>
-          <p className="mt-0.5 text-[11px] text-[var(--ink-muted)]">Primary Target</p>
-        </div>
-        <div className="py-3">
-          <p className="text-[var(--ink-primary)]">No Flagship Lock</p>
-          <p className="mt-0.5 text-[11px] text-[var(--ink-muted)]">Everyday RAM</p>
-        </div>
-        <div className="py-3">
-          <p className="text-[var(--ink-primary)]">Cold Start</p>
-          <p className="mt-0.5 text-[11px] text-[var(--ink-muted)]">Local Storage</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function LocalWifiBridgeVisual() {
-  return (
-    <div className="border border-[var(--hairline)] bg-[var(--bg-inset)] p-6 sm:p-7">
-      <div className="flex items-center justify-between border-b border-[var(--hairline)] pb-4 font-mono text-xs">
-        <span className="uppercase tracking-[0.08em] text-[var(--ink-primary)]">
-          Local Wi-Fi Topology
-        </span>
-        <span className="text-[var(--signal-local)]">LAN ONLY</span>
-      </div>
-
-      <div className="mt-6 grid grid-cols-1 items-center gap-3 sm:grid-cols-[1fr_auto_1fr]">
-        <div className="border border-[var(--hairline-strong)] bg-[var(--bg-void)] p-4">
-          <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--ink-muted)]">
-            Android Phone
-          </p>
-          <p className="mt-1.5 text-sm font-medium text-[var(--ink-primary)]">
-            MABA Link
-          </p>
-          <p className="mt-1 font-mono text-xs text-[var(--ink-secondary)]">
-            Prompt &amp; stream client
+          <p className="font-mono text-[11px] text-[var(--ink-muted)]">
+            Visual asset pending
           </p>
         </div>
-
-        <div className="flex flex-col items-center justify-center px-2 py-1 text-center font-mono text-[11px]">
-          <span className="text-[var(--accent-cobalt)]">Local Wi-Fi</span>
-          <span className="my-1 block h-[1px] w-16 bg-[var(--accent-cobalt)]" />
-          <span className="tabular-nums text-[var(--ink-muted)]">192.168.x.x</span>
-        </div>
-
-        <div className="border border-[var(--hairline-strong)] bg-[var(--bg-void)] p-4">
-          <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--ink-muted)]">
-            Desktop PC
-          </p>
-          <p className="mt-1.5 text-sm font-medium text-[var(--ink-primary)]">
-            LM Studio Server
-          </p>
-          <p className="mt-1 font-mono text-xs text-[var(--ink-secondary)]">
-            Full desktop models
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-5 flex items-center justify-between border border-dashed border-[var(--hairline-strong)] bg-[var(--bg-void)] px-4 py-3 font-mono text-xs">
-        <span className="text-[var(--ink-muted)]">PUBLIC INTERNET / CLOUD RELAY</span>
-        <span className="text-[var(--ink-secondary)]">NOT USED</span>
-      </div>
-    </div>
-  );
-}
-
-function VirtualHddVisual() {
-  return (
-    <div className="border border-[var(--hairline)] bg-[var(--bg-inset)] p-6 sm:p-7">
-      <div className="flex items-center justify-between border-b border-[var(--hairline)] pb-4 font-mono text-xs">
-        <span className="uppercase tracking-[0.08em] text-[var(--ink-primary)]">
-          Windows Storage Pool
-        </span>
-        <span className="text-[var(--ink-secondary)]">READ-THROUGH CACHE</span>
-      </div>
-
-      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
-        {[
-          { name: "Google Drive", role: "Remote Pool" },
-          { name: "TeraBox", role: "Remote Pool" },
-          { name: "Local Cache", role: "Hot Read Layer" },
-        ].map((source) => (
-          <div
-            key={source.name}
-            className="border border-[var(--hairline)] bg-[var(--bg-void)] p-3.5"
-          >
-            <p className="text-sm font-medium text-[var(--ink-primary)]">
-              {source.name}
-            </p>
-            <p className="mt-1 font-mono text-[11px] text-[var(--ink-muted)]">
-              {source.role}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div className="my-3 flex items-center justify-center">
-        <span className="h-5 w-[1px] bg-[var(--accent-cobalt)]" aria-hidden="true" />
-      </div>
-
-      <div className="flex flex-wrap items-center justify-between gap-3 border border-[var(--accent-cobalt)] bg-[var(--accent-cobalt-tint)] px-4 py-4">
-        <div>
-          <p className="font-mono text-xs uppercase tracking-[0.08em] text-[var(--ink-primary)]">
-            Mounted Windows Drive Letter
-          </p>
-          <p className="mt-1 text-sm text-[var(--ink-secondary)]">
-            One unified drive inside File Explorer and native apps.
-          </p>
-        </div>
-        <span className="border border-[var(--accent-cobalt)] bg-[var(--bg-void)] px-3 py-1.5 font-mono text-sm font-medium text-[var(--ink-primary)]">
-          M:\
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function SinglePassGlslVisual() {
-  const [singlePass, setSinglePass] = useState(true);
-
-  return (
-    <div className="border border-[var(--hairline)] bg-[var(--bg-inset)] p-6 sm:p-7">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--hairline)] pb-4">
-        <span className="font-mono text-xs uppercase tracking-[0.08em] text-[var(--ink-primary)]">
-          Mobile GPU Shader Pipeline
-        </span>
-
-        <div className="inline-flex border border-[var(--hairline-strong)] bg-[var(--bg-void)] font-mono text-xs">
-          <button
-            type="button"
-            onClick={() => setSinglePass(true)}
-            aria-pressed={singlePass}
-            className={`px-3 py-1.5 transition-colors ${
-              singlePass
-                ? "bg-[var(--accent-cobalt)] text-white"
-                : "text-[var(--ink-secondary)] hover:text-[var(--ink-primary)]"
-            }`}
-          >
-            MABA 1-Pass
-          </button>
-          <button
-            type="button"
-            onClick={() => setSinglePass(false)}
-            aria-pressed={!singlePass}
-            className={`px-3 py-1.5 transition-colors ${
-              !singlePass
-                ? "bg-[var(--hairline-strong)] text-white"
-                : "text-[var(--ink-secondary)] hover:text-[var(--ink-primary)]"
-            }`}
-          >
-            Multi-Pass
-          </button>
-        </div>
-      </div>
-
-      <div className="mt-5">
-        {singlePass ? (
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-            <div className="border border-[var(--hairline)] bg-[var(--bg-void)] p-4">
-              <p className="font-mono text-[11px] text-[var(--ink-muted)]">INPUT</p>
-              <p className="mt-1 text-sm text-[var(--ink-primary)]">
-                Low-Res Framebuffer
-              </p>
-            </div>
-            <span className="font-mono text-xs text-[var(--accent-cobalt)]">
-              1 PASS →
-            </span>
-            <div className="border border-[var(--accent-cobalt)] bg-[var(--accent-cobalt-tint)] p-4">
-              <p className="font-mono text-[11px] text-[var(--ink-primary)]">
-                GLSL OUTPUT
-              </p>
-              <p className="mt-1 text-sm text-[var(--ink-primary)]">
-                Spatial Edge Reconstruction
-              </p>
-            </div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-3 gap-2 font-mono text-xs">
-            <div className="border border-[var(--hairline)] bg-[var(--bg-void)] p-3 text-[var(--ink-secondary)]">
-              Pass 1: Luma Extract
-            </div>
-            <div className="border border-[var(--hairline)] bg-[var(--bg-void)] p-3 text-[var(--ink-secondary)]">
-              Pass 2: Gradient Buffer
-            </div>
-            <div className="border border-[var(--hairline)] bg-[var(--bg-void)] p-3 text-[var(--ink-secondary)]">
-              Pass 3: Composite Write
-            </div>
-          </div>
-        )}
-      </div>
-
-      <pre className="mt-5 overflow-x-auto border border-[var(--hairline)] bg-[var(--bg-void)] p-3.5 font-mono text-xs leading-[1.6] text-[var(--ink-secondary)]">
-        <code>
-          {singlePass
-            ? "// MABA Upscaler · Open Source GLSL\nvec4 spatialUpscale(sampler2D tex, vec2 uv); // single pass, low-end mobile GPU"
-            : "// Multi-pass chains write intermediate render targets\n// Extra memory bandwidth stalls low-end mobile GPUs"}
-        </code>
-      </pre>
-    </div>
-  );
-}
-
-function OwnershipAuditVisual() {
-  const rows = [
-    { item: "Account / Login", cloud: "Required", maba: "None" },
-    { item: "Monthly Subscription", cloud: "Paywalled", maba: "None" },
-    { item: "API Keys & Token Caps", cloud: "Metered", maba: "Unlimited Local" },
-    { item: "Outbound Cloud Calls", cloud: "Every Prompt", maba: "0 Calls" },
-  ];
-
-  return (
-    <div className="border border-[var(--hairline)] bg-[var(--bg-inset)] p-6 sm:p-7">
-      <div className="grid grid-cols-[1.3fr_1fr_1fr] border-b border-[var(--hairline)] pb-3 font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--ink-muted)]">
-        <span>Requirement</span>
-        <span>Cloud AI</span>
-        <span className="text-[var(--ink-primary)]">MABA Studios</span>
-      </div>
-
-      <div className="divide-y divide-[var(--hairline)]">
-        {rows.map((row) => (
-          <div
-            key={row.item}
-            className="grid grid-cols-[1.3fr_1fr_1fr] items-center py-3.5 text-sm"
-          >
-            <span className="text-[var(--ink-primary)]">{row.item}</span>
-            <span className="font-mono text-xs text-[var(--ink-muted)]">
-              {row.cloud}
-            </span>
-            <span className="inline-flex items-center gap-1.5 font-mono text-xs text-[var(--signal-local)]">
-              <CheckIcon className="h-3.5 w-3.5 shrink-0" />
-              <span>{row.maba}</span>
-            </span>
-          </div>
-        ))}
       </div>
     </div>
   );
@@ -354,15 +104,15 @@ function OwnershipAuditVisual() {
 
 const SOLUTION_BLOCKS = [
   {
-    id: "maba-ai",
+    id: "bama-ai",
     platform: "Android · Flagship App",
-    title: "MABA AI — Completely Offline Assistant",
+    title: "BAMA AI — Completely Offline Assistant",
     feature:
       "A standalone Android AI assistant engineered around quantization-native language models, available free on Google Play.",
     benefit:
       "Draft, brainstorm, and reason anywhere—even with Wi-Fi and mobile data switched off—with total air-gapped privacy.",
-    action: SITE_LINKS.mabaAiPlay,
-    visual: <AirGappedMonitorVisual />,
+    action: SITE_LINKS.bamaAiPlay,
+    slotLabel: "BAMA AI · Product Placeholder",
   },
   {
     id: "quantization-native",
@@ -373,18 +123,18 @@ const SOLUTION_BLOCKS = [
     benefit:
       "Run capable local models smoothly on budget and mid-range phones without buying flagship hardware.",
     action: null,
-    visual: <QuantizationBudgetVisual />,
+    slotLabel: "Quantization Engine · Visual Placeholder",
   },
   {
-    id: "maba-link",
+    id: "bama-link",
     platform: "Android · Local Network",
-    title: "MABA Link — Phone to PC LM Studio Bridge",
+    title: "BAMA Link — Phone to PC LM Studio Bridge",
     feature:
       "Connects your Android device directly to LM Studio running on your PC over your local Wi-Fi network.",
     benefit:
       "Tap into larger desktop language models from your phone without exposing prompts or traffic to external cloud servers.",
-    action: SITE_LINKS.mabaLink,
-    visual: <LocalWifiBridgeVisual />,
+    action: SITE_LINKS.bamaLink,
+    slotLabel: "BAMA Link · Product Placeholder",
   },
   {
     id: "virtual-hdd",
@@ -395,29 +145,29 @@ const SOLUTION_BLOCKS = [
     benefit:
       "Work across all your storage directly inside Windows File Explorer with local-feeling reads and zero manual tab juggling.",
     action: SITE_LINKS.virtualHdd,
-    visual: <VirtualHddVisual />,
+    slotLabel: "Virtual HDD · Product Placeholder",
   },
   {
-    id: "maba-upscaler",
+    id: "bama-upscaler",
     platform: "Open Source · GLSL",
-    title: "MABA Upscaler — Single-Pass Mobile Spatial Shader",
+    title: "BAMA Upscaler — Single-Pass Mobile Spatial Shader",
     feature:
       "An open-source, single-pass spatial upscaler written in GLSL specifically for low-end mobile GPUs.",
     benefit:
       "Deliver sharper visuals in one shader pass while avoiding the multi-pass memory bandwidth bottleneck that stalls budget graphics chips.",
-    action: SITE_LINKS.mabaUpscaler,
-    visual: <SinglePassGlslVisual />,
+    action: SITE_LINKS.bamaUpscaler,
+    slotLabel: "BAMA Upscaler · Product Placeholder",
   },
   {
     id: "local-ownership",
     platform: "Lab Standard",
     title: "Zero Paywalls, API Keys, or Token Limits",
     feature:
-      "Every MABA Studios tool skips account creation, billing gates, API key setup, and remote usage metering.",
+      "Every BAMA Studios tool skips account creation, billing gates, API key setup, and remote usage metering.",
     benefit:
       "Install once and own your workflow outright—no monthly rent and no server sitting between you and your tools.",
     action: null,
-    visual: <OwnershipAuditVisual />,
+    slotLabel: "BAMA Suite · Visual Placeholder",
   },
 ];
 
@@ -441,8 +191,8 @@ export function SolutionSection() {
           </div>
           <div className="lg:col-span-5">
             <p className="max-w-[52ch] text-base leading-[1.65] text-[var(--ink-secondary)]">
-              MABA Studios replaces cloud-dependent subscriptions with four
-              focused, local-first releases—led by MABA AI on Android and backed
+              BAMA Studios replaces cloud-dependent subscriptions with four
+              focused, local-first releases—led by BAMA AI on Android and backed
               by quantization-native engineering built for real-world devices.
             </p>
           </div>
@@ -511,7 +261,9 @@ export function SolutionSection() {
                     : "border-t border-[var(--hairline)] lg:order-2 lg:border-t-0"
                 }`}
               >
-                <div className="w-full">{block.visual}</div>
+                <div className="w-full">
+                  <WatermarkPlaceholder slotLabel={block.slotLabel} />
+                </div>
               </div>
             </article>
           );

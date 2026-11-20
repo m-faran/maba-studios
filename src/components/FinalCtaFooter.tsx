@@ -37,20 +37,20 @@ export function FinalCtaFooter() {
             </h2>
 
             <p className="mt-6 max-w-[50ch] text-base leading-[1.65] text-[var(--ink-secondary)] sm:text-[1.0625rem]">
-              Start with MABA AI free on Google Play, or explore our local-first
+              Start with BAMA AI free on Google Play, or explore our local-first
               releases for Android, Windows, and mobile GLSL—zero accounts, zero
               subscriptions, zero cloud calls.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3.5">
               <a
-                href={SITE_LINKS.mabaAiPlay.href}
-                {...(SITE_LINKS.mabaAiPlay.external
+                href={SITE_LINKS.bamaAiPlay.href}
+                {...(SITE_LINKS.bamaAiPlay.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
                 className="inline-flex h-11 items-center gap-2 rounded-[2px] bg-[var(--accent-cobalt)] px-6 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-cobalt-hover)]"
               >
-                <span>Get MABA AI on Google Play</span>
+                <span>Get BAMA AI on Google Play</span>
                 <ArrowRightIcon className="h-4 w-4" />
               </a>
 
@@ -73,7 +73,7 @@ export function FinalCtaFooter() {
               href="#top"
               className="font-editorial text-2xl font-medium tracking-[0.04em] text-[var(--ink-primary)]"
             >
-              MABA STUDIOS
+              BAMA STUDIOS
             </a>
             <p className="mt-4 max-w-[40ch] leading-[1.65] text-[var(--ink-secondary)]">
               Independent edge-AI engineering lab building quantization-native
@@ -90,18 +90,18 @@ export function FinalCtaFooter() {
               <ul className="mt-4 space-y-3">
                 <li>
                   <a
-                    href="#maba-ai"
+                    href="#bama-ai"
                     className="transition-colors hover:text-[var(--ink-primary)]"
                   >
-                    MABA AI (Android)
+                    BAMA AI (Android)
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#maba-link"
+                    href="#bama-link"
                     className="transition-colors hover:text-[var(--ink-primary)]"
                   >
-                    MABA Link (Android)
+                    BAMA Link (Android)
                   </a>
                 </li>
                 <li>
@@ -114,10 +114,10 @@ export function FinalCtaFooter() {
                 </li>
                 <li>
                   <a
-                    href="#maba-upscaler"
+                    href="#bama-upscaler"
                     className="transition-colors hover:text-[var(--ink-primary)]"
                   >
-                    MABA Upscaler (GLSL)
+                    BAMA Upscaler (GLSL)
                   </a>
                 </li>
               </ul>
@@ -170,7 +170,7 @@ export function FinalCtaFooter() {
               <ul className="mt-4 space-y-3">
                 <li>
                   <a
-                    href={SITE_LINKS.mabaAiPlay.href}
+                    href={SITE_LINKS.bamaAiPlay.href}
                     className="inline-flex items-center gap-1 transition-colors hover:text-[var(--ink-primary)]"
                   >
                     <span>Google Play</span>
@@ -188,7 +188,7 @@ export function FinalCtaFooter() {
                 </li>
                 <li>
                   <a
-                    href={SITE_LINKS.mabaUpscaler.href}
+                    href={SITE_LINKS.bamaUpscaler.href}
                     className="inline-flex items-center gap-1 transition-colors hover:text-[var(--ink-primary)]"
                   >
                     <span>GitHub Open Source</span>
@@ -201,7 +201,7 @@ export function FinalCtaFooter() {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-3 border-t border-[var(--hairline)] px-6 py-6 text-xs text-[var(--ink-muted)] sm:flex-row sm:items-center sm:px-10 lg:px-12">
-          <p>© MABA Studios. Independent Edge-AI Engineering Lab.</p>
+          <p>© BAMA Studios. Independent Edge-AI Engineering Lab.</p>
           <p className="font-mono">100% ON-DEVICE · ZERO CLOUD CALLS · NO PAYWALLS</p>
         </div>
       </footer>

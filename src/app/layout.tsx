@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MABA Studios — Local-First AI for Every Device",
+  title: "BAMA Studios — Local-First AI for Every Device",
   description:
     "Independent edge-AI engineering lab building quantization-native language models and local-first software for budget and mid-range Android phones, Windows PCs, and mobile GPUs. Zero cloud calls, accounts, or paywalls.",
 };

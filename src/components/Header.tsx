@@ -21,7 +21,7 @@ export function Header() {
           href="#top"
           className="font-editorial whitespace-nowrap text-[1.15rem] font-medium tracking-[0.04em] text-[var(--ink-primary)] transition-opacity hover:opacity-85 sm:text-[1.45rem]"
         >
-          MABA STUDIOS
+          BAMA STUDIOS
         </a>
 
         <nav
@@ -41,13 +41,13 @@ export function Header() {
 
         <div className="flex shrink-0 items-center gap-2.5 sm:gap-3">
           <a
-            href={SITE_LINKS.mabaAiPlay.href}
-            {...(SITE_LINKS.mabaAiPlay.external
+            href={SITE_LINKS.bamaAiPlay.href}
+            {...(SITE_LINKS.bamaAiPlay.external
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
             className="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-[2px] bg-[var(--accent-cobalt)] px-3.5 text-xs font-medium text-white transition-colors hover:bg-[var(--accent-cobalt-hover)] sm:h-10 sm:px-5 sm:text-sm"
           >
-            {SITE_LINKS.mabaAiPlay.label}
+            {SITE_LINKS.bamaAiPlay.label}
           </a>
 
           <button

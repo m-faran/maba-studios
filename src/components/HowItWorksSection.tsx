@@ -3,7 +3,7 @@ const STEPS = [
     step: "1",
     title: "Choose your platform",
     description:
-      "Pick MABA AI or MABA Link on Android, Virtual HDD on Windows, or grab MABA Upscaler's open-source GLSL shader directly for mobile graphics.",
+      "Pick BAMA AI or BAMA Link on Android, Virtual HDD on Windows, or grab BAMA Upscaler's open-source GLSL shader directly for mobile graphics.",
     meta: "Android · Windows · GLSL",
   },
   {

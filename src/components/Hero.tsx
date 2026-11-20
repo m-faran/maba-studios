@@ -24,13 +24,13 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:mt-9">
             <a
-              href={SITE_LINKS.mabaAiPlay.href}
-              {...(SITE_LINKS.mabaAiPlay.external
+              href={SITE_LINKS.bamaAiPlay.href}
+              {...(SITE_LINKS.bamaAiPlay.external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
               className="inline-flex h-11 items-center justify-center rounded-[2px] bg-[var(--accent-cobalt)] px-6 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-cobalt-hover)]"
             >
-              Get MABA AI
+              Get BAMA AI
             </a>
 
             <a

@@ -1,4 +1,4 @@
-# Design System — MABA Studios
+# Design System — BAMA Studios
 
 <!-- impeccable:design-schema 1 -->
 
@@ -25,7 +25,7 @@
 
 ## Typography (`src/app/layout.tsx`)
 
-- **Display Serif (`--font-display`):** `Bodoni Moda` (`500`, `600`, `700`) — uppercase editorial display headlines (`-0.025em` tracking, tight `1.04–1.08` leading, balanced wrapping) and the `MABA STUDIOS` wordmark.
+- **Display Serif (`--font-display`):** `Bodoni Moda` (`500`, `600`, `700`) — uppercase editorial display headlines (`-0.025em` tracking, tight `1.04–1.08` leading, balanced wrapping) and the `BAMA STUDIOS` wordmark.
 - **UI & Body Sans (`--font-sans`):** `Geist` — clean, high-legibility body copy (`15–17px`, `1.65` line-height, `48–60ch` measure), navigation, and buttons.
 - **Technical Monospace (`--font-mono`):** `Geist Mono` — reserved strictly for genuine technical data (platform tags, LAN addresses, drive letters, GLSL snippets, tabular invariants). Never used as decorative body prose.
 

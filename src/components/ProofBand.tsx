@@ -61,17 +61,17 @@ export function ProofBand() {
 
         <div className="flex flex-wrap items-center gap-5 text-sm">
           <a
-            href={SITE_LINKS.mabaAiPlay.href}
+            href={SITE_LINKS.bamaAiPlay.href}
             className="inline-flex items-center gap-1.5 font-medium text-[var(--ink-primary)] transition-colors hover:text-[var(--accent-cobalt)]"
           >
-            <span>MABA AI on Google Play</span>
+            <span>BAMA AI on Google Play</span>
             <ArrowUpRightIcon className="h-3.5 w-3.5" />
           </a>
           <a
-            href={SITE_LINKS.mabaUpscaler.href}
+            href={SITE_LINKS.bamaUpscaler.href}
             className="inline-flex items-center gap-1.5 font-medium text-[var(--ink-primary)] transition-colors hover:text-[var(--accent-cobalt)]"
           >
-            <span>MABA Upscaler GLSL Source</span>
+            <span>BAMA Upscaler GLSL Source</span>
             <ArrowUpRightIcon className="h-3.5 w-3.5" />
           </a>
         </div>

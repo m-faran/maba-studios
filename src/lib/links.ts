@@ -1,5 +1,5 @@
 /**
- * Central distribution & navigation links for MABA Studios.
+ * Central distribution & navigation links for BAMA Studios.
  * Replace `href` values with live Google Play, Windows release, and GitHub URLs
  * whenever ready—no UI or image changes required.
  */
@@ -15,21 +15,21 @@ export interface DistributionLink {
 }
 
 export const SITE_LINKS = {
-  mabaAiPlay: {
-    label: "Get MABA AI",
+  bamaAiPlay: {
+    label: "Get BAMA AI",
     platform: "Google Play · Android",
-    href: "#maba-ai",
+    href: "#bama-ai",
     external: false,
     live: false,
     statusNote: "Drop your Google Play listing URL into src/lib/links.ts",
   },
-  mabaLink: {
-    label: "Get MABA Link",
+  bamaLink: {
+    label: "Get BAMA Link",
     platform: "Android · Local Wi-Fi",
-    href: "#maba-link",
+    href: "#bama-link",
     external: false,
     live: false,
-    statusNote: "Drop your MABA Link Android URL into src/lib/links.ts",
+    statusNote: "Drop your BAMA Link Android URL into src/lib/links.ts",
   },
   virtualHdd: {
     label: "Get Virtual HDD",
@@ -39,10 +39,10 @@ export const SITE_LINKS = {
     live: false,
     statusNote: "Drop your Windows release URL into src/lib/links.ts",
   },
-  mabaUpscaler: {
+  bamaUpscaler: {
     label: "View GLSL Source",
     platform: "GitHub · Open Source",
-    href: "#maba-upscaler",
+    href: "#bama-upscaler",
     external: false,
     live: false,
     statusNote: "Drop your GitHub repository URL into src/lib/links.ts",
@@ -50,9 +50,9 @@ export const SITE_LINKS = {
   githubOrg: {
     label: "GitHub",
     platform: "Open Source",
-    href: "#maba-upscaler",
+    href: "#bama-upscaler",
     external: false,
     live: false,
-    statusNote: "Drop your MABA Studios GitHub org URL into src/lib/links.ts",
+    statusNote: "Drop your BAMA Studios GitHub org URL into src/lib/links.ts",
   },
 } satisfies Record<string, DistributionLink>;
